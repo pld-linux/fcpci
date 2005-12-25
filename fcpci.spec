@@ -1,8 +1,10 @@
 #
+# SMP will proably *never* work.
+#
 # Conditional build:
 %bcond_without	dist_kernel	# allow non-distribution kernel
 %bcond_without	kernel		# don't build kernel modules
-%bcond_with	smp		# don't build SMP module
+%bcond_with	smp		# build SMP module
 %bcond_without	userspace	# don't build userspace programs
 %bcond_with	verbose		# verbose build (V=1)
 #
@@ -36,14 +38,16 @@ This is the package "CAPI4Linux" for AVM FRITZ! controlers. In package
 you will find following components:
 - CAPI 2.0 driver of the controller
 - CAPI 2.0 plug-in for the Generic PPP-Stack "pppd"
+This package could attend two controlers simultaneously.  
 
 %description -l pl
 Ten pakiet zawiera CAPI4Linux dla kontrolerów AVM FRITRZ!. W pakiecie
 znajduj± siê:
 - Sterownik CAPI 2.0
 - Wtyczka CAPI 2.0 dla pppd
+Ten pakiet mo¿e obs³ugiwaæ dwa kontrolery jednocze¶nie.  
 
-%package -n kernel-isdn-fcpci
+%package -n kernel-up-isdn-fcpci
 Summary:	Linux driver for fcpci
 Summary(pl):	Sterownik dla Linuksa do fcpci
 Release:	%{_rel}@%{_kernel_ver_str}
@@ -54,12 +58,12 @@ Requires(post,postun):	/sbin/depmod
 Requires(postun):	%releq_kernel_up
 %endif
 
-%description -n kernel-isdn-fcpci
+%description -n kernel-up-isdn-fcpci
 This is driver for fcpci for Linux.
 
 This package contains Linux module.
 
-%description -n kernel-isdn-fcpci -l pl
+%description -n kernel-up-isdn-fcpci -l pl
 Sterownik dla Linuksa do fcpci.
 
 Ten pakiet zawiera modu³ j±dra Linuksa.
@@ -155,28 +159,30 @@ install fcpci-smp.ko \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-n kernel-isdn/hardware-fcpci
+%post	-n kernel-up-isdn-fcpci
 %depmod %{_kernel_ver}
 
-%postun	-n kernel-isdn/hardware-fcpci
+%postun	-n kernel-up-isdn-fcpci
 %depmod %{_kernel_ver}
 
-%post	-n kernel-smp-isdn/hardware-fcpci
+%post	-n kernel-smp-isdn-fcpci
 %depmod %{_kernel_ver}smp
 
-%postun	-n kernel-smp-isdn/hardware-fcpci
+%postun	-n kernel-smp-isdn-fcpci
 %depmod %{_kernel_ver}smp
 
 %if %{with userspace}
 %endif
 
+
 %if %{with kernel}
-%files -n kernel-isdn/hardware-fcpci
+%files -n kernel-isdn-fcpci
 %defattr(644,root,root,755)
 /lib/modules/%{_kernel_ver}/isdn/hardware/*.ko*
+%doc CAPI20_Errormessages.txt license.txt *.html
 
 %if %{with smp} && %{with dist_kernel}
-%files -n kernel-smp-isdn/hardware-fcpci
+%files -n kernel-smp-isdn-fcpci
 %defattr(644,root,root,755)
 /lib/modules/%{_kernel_ver}smp/isdn/hardware/*.ko*
 %endif
