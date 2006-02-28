@@ -11,12 +11,12 @@
 %if %{without kernel}
 %undefine	with_dist_kernel
 %endif
+%define		sub_ver	07
+%define		_rel	0.1
 Summary:	CAPI 2.0 driver of the AVM FRITZ! controller (ISDN TA)
 Summary(pl):	Sterownik CAPI 2.0 do kontrolera AVM FRITZ! (ISDN TA)
 Name:		kernel-isdn-fcpci
 Version:	3.11
-%define		sub_ver	07
-%define		_rel	0.1
 Release:	%{_rel}
 Epoch:		0
 License:	Proprietary, use is permited. Copyright (C) 2002, AVM GmbH. All rights reserved.
@@ -38,14 +38,14 @@ This is the package "CAPI4Linux" for AVM FRITZ! controlers. In package
 you will find following components:
 - CAPI 2.0 driver of the controller
 - CAPI 2.0 plug-in for the Generic PPP-Stack "pppd"
-This package could attend two controlers simultaneously.  
+This package could attend two controlers simultaneously.
 
 %description -l pl
 Ten pakiet zawiera CAPI4Linux dla kontrolerów AVM FRITRZ!. W pakiecie
 znajduj± siê:
 - Sterownik CAPI 2.0
 - Wtyczka CAPI 2.0 dla pppd
-Ten pakiet mo¿e obs³ugiwaæ dwa kontrolery jednocze¶nie.  
+Ten pakiet mo¿e obs³ugiwaæ dwa kontrolery jednocze¶nie.
 
 %package -n kernel-up-isdn-fcpci
 Summary:	Linux driver for fcpci
