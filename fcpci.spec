@@ -28,7 +28,7 @@ Source0:	ftp://ftp.avm.de/cardware/fritzcrd.pci/linux/suse.93/fcpci-suse93-%{ver
 # Source1-md5:	-
 URL:		http://www.avm.de/de/Produkte/FRITZCard/
 %if %{with kernel}
-%{?with_dist_kernel:BuildRequires:	kernel-module-build >= 2.6.7}
+%{?with_dist_kernel:BuildRequires:	kernel-module-build >= 3:2.6.7}
 BuildRequires:	rpmbuild(macros) >= 1.217
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -37,15 +37,15 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This is the package "CAPI4Linux" for AVM FRITZ! controlers. In package
 you will find following components:
 - CAPI 2.0 driver of the controller
-- CAPI 2.0 plug-in for the Generic PPP-Stack "pppd"
-This package could attend two controlers simultaneously.
+- CAPI 2.0 plug-in for the Generic PPP-Stack "pppd" This package could
+  attend two controlers simultaneously.
 
 %description -l pl
 Ten pakiet zawiera CAPI4Linux dla kontrolerów AVM FRITRZ!. W pakiecie
 znajduj± siê:
 - Sterownik CAPI 2.0
-- Wtyczka CAPI 2.0 dla pppd
-Ten pakiet mo¿e obs³ugiwaæ dwa kontrolery jednocze¶nie.
+- Wtyczka CAPI 2.0 dla pppd Ten pakiet mo¿e obs³ugiwaæ dwa kontrolery
+  jednocze¶nie.
 
 %package -n kernel-up-isdn-fcpci
 Summary:	Linux driver for fcpci
