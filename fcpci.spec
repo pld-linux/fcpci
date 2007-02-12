@@ -14,7 +14,7 @@
 %define		sub_ver	07
 %define		_rel	0.1
 Summary:	CAPI 2.0 driver of the AVM FRITZ! controller (ISDN TA)
-Summary(pl):	Sterownik CAPI 2.0 do kontrolera AVM FRITZ! (ISDN TA)
+Summary(pl.UTF-8):   Sterownik CAPI 2.0 do kontrolera AVM FRITZ! (ISDN TA)
 Name:		kernel-isdn-fcpci
 Version:	3.11
 Release:	%{_rel}
@@ -40,16 +40,16 @@ you will find following components:
 - CAPI 2.0 plug-in for the Generic PPP-Stack "pppd" This package could
   attend two controlers simultaneously.
 
-%description -l pl
-Ten pakiet zawiera CAPI4Linux dla kontrolerów AVM FRITRZ!. W pakiecie
-znajduj± siê:
+%description -l pl.UTF-8
+Ten pakiet zawiera CAPI4Linux dla kontrolerÃ³w AVM FRITRZ!. W pakiecie
+znajdujÄ… siÄ™:
 - Sterownik CAPI 2.0
-- Wtyczka CAPI 2.0 dla pppd Ten pakiet mo¿e obs³ugiwaæ dwa kontrolery
-  jednocze¶nie.
+- Wtyczka CAPI 2.0 dla pppd Ten pakiet moÅ¼e obsÅ‚ugiwaÄ‡ dwa kontrolery
+  jednoczeÅ›nie.
 
 %package -n kernel-up-isdn-fcpci
 Summary:	Linux driver for fcpci
-Summary(pl):	Sterownik dla Linuksa do fcpci
+Summary(pl.UTF-8):   Sterownik dla Linuksa do fcpci
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 Requires(post,postun):	/sbin/depmod
@@ -63,14 +63,14 @@ This is driver for fcpci for Linux.
 
 This package contains Linux module.
 
-%description -n kernel-up-isdn-fcpci -l pl
+%description -n kernel-up-isdn-fcpci -l pl.UTF-8
 Sterownik dla Linuksa do fcpci.
 
-Ten pakiet zawiera modu³ j±dra Linuksa.
+Ten pakiet zawiera moduÅ‚ jÄ…dra Linuksa.
 
 %package -n kernel-smp-isdn-fcpci
 Summary:	Linux SMP driver for fcpci
-Summary(pl):	Sterownik dla Linuksa SMP do fcpci
+Summary(pl.UTF-8):   Sterownik dla Linuksa SMP do fcpci
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 Requires(post,postun):	/sbin/depmod
@@ -84,10 +84,10 @@ This is driver for fcpci for Linux.
 
 This package contains Linux SMP module.
 
-%description -n kernel-smp-isdn-fcpci -l pl
+%description -n kernel-smp-isdn-fcpci -l pl.UTF-8
 Sterownik dla Linuksa do fcpci.
 
-Ten pakiet zawiera modu³ j±dra Linuksa SMP.
+Ten pakiet zawiera moduÅ‚ jÄ…dra Linuksa SMP.
 
 %prep
 %setup -q -n fritz
