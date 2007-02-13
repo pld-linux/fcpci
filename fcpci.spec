@@ -14,7 +14,7 @@
 %define		sub_ver	07
 %define		_rel	0.1
 Summary:	CAPI 2.0 driver of the AVM FRITZ! controller (ISDN TA)
-Summary(pl.UTF-8):   Sterownik CAPI 2.0 do kontrolera AVM FRITZ! (ISDN TA)
+Summary(pl.UTF-8):	Sterownik CAPI 2.0 do kontrolera AVM FRITZ! (ISDN TA)
 Name:		kernel-isdn-fcpci
 Version:	3.11
 Release:	%{_rel}
@@ -49,7 +49,7 @@ znajdują się:
 
 %package -n kernel-up-isdn-fcpci
 Summary:	Linux driver for fcpci
-Summary(pl.UTF-8):   Sterownik dla Linuksa do fcpci
+Summary(pl.UTF-8):	Sterownik dla Linuksa do fcpci
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 Requires(post,postun):	/sbin/depmod
@@ -70,7 +70,7 @@ Ten pakiet zawiera moduł jądra Linuksa.
 
 %package -n kernel-smp-isdn-fcpci
 Summary:	Linux SMP driver for fcpci
-Summary(pl.UTF-8):   Sterownik dla Linuksa SMP do fcpci
+Summary(pl.UTF-8):	Sterownik dla Linuksa SMP do fcpci
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 Requires(post,postun):	/sbin/depmod
