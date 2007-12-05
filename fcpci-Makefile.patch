@@ -1,0 +1,10 @@
+--- fritz/Makefile.orig	2007-12-05 19:31:27.000000000 +0000
++++ fritz/Makefile	2007-12-05 19:32:21.000000000 +0000
+@@ -1,6 +1,6 @@
+ # Just to jump into the src directory...
+ 
+-include ID
++CARD 		:= fcpci 
+ 
+ KDIR		:= /lib/modules/$(shell uname -r)/extra/
+ 
