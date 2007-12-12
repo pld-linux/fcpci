@@ -18,34 +18,38 @@ Name:		fcpci
 Version:	3.11
 Release:	%{_rel}
 Epoch:		0
-License:	Proprietary, use is permited. Copyright (C) 2002, AVM GmbH. All rights reserved.
+License:	Proprietary (non-distributable) with LGPL v2.1+ part
 Group:		Base/Kernel
 Source0:	ftp://ftp.avm.de/cardware/fritzcrd.pci/linux/suse.93/%{name}-suse93-%{version}-%{sub_ver}.tar.gz
-# Source0-md5:	3ee301b5d0e8df9e4b915af58b725556
+# NoSource0-md5:	3ee301b5d0e8df9e4b915af58b725556
 # to be done:
 #Source1:	http://www.quiss.org/caiviar/Two-Fritzcards-HOWTO
 # Source1-md5:	-
+NoSource:	0
 Patch0:		%{name}-Makefile.patch
 URL:		http://www.avm.de/de/Produkte/FRITZCard/
 %if %{with kernel}
 %{?with_dist_kernel:BuildRequires:	kernel-module-build >= 3:2.6.7}
 BuildRequires:	rpmbuild(macros) >= 1.217
 %endif
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This is the package "CAPI4Linux" for AVM FRITZ! controlers. In package
 you will find following components:
 - CAPI 2.0 driver of the controller
-- CAPI 2.0 plug-in for the Generic PPP-Stack "pppd" This package could
-  attend two controlers simultaneously.
+- CAPI 2.0 plug-in for the Generic PPP-Stack "pppd" (missing)
+
+This package could attend two controlers simultaneously.
 
 %description -l pl.UTF-8
 Ten pakiet zawiera CAPI4Linux dla kontrolerów AVM FRITRZ!. W pakiecie
 znajdują się:
 - Sterownik CAPI 2.0
-- Wtyczka CAPI 2.0 dla pppd Ten pakiet może obsługiwać dwa kontrolery
-  jednocześnie.
+- Wtyczka CAPI 2.0 dla pppd (brakująca)
+
+Ten pakiet może obsługiwać dwa kontrolery jednocześnie.
 
 %package -n kernel%{_alt_kernel}-isdn-fcpci
 Summary:	Linux driver for fcpci
@@ -61,7 +65,7 @@ Requires(postun):	%releq_kernel
 %description -n kernel%{_alt_kernel}-isdn-fcpci
 This is driver for fcpci for Linux.
 
-This package contains Linux module.
+This package contains Linux kernel module.
 
 %description -n kernel%{_alt_kernel}-isdn-fcpci -l pl.UTF-8
 Sterownik dla Linuksa do fcpci.
@@ -73,18 +77,12 @@ Ten pakiet zawiera moduł jądra Linuksa.
 %patch0 -p1
 
 %build
-%if %{with userspace}
-%endif
-
 %if %{with kernel}
 %build_kernel_modules -m fcpci{1,2}
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-%if %{with userspace}
-%endif
 
 %if %{with kernel}
 %install_kernel_modules -m fcpci{1,2} -d isdn/hardware
@@ -98,9 +96,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun	-n kernel%{_alt_kernel}-isdn-fcpci
 %depmod %{_kernel_ver}
-
-%if %{with userspace}
-%endif
 
 %if %{with kernel}
 %files -n kernel%{_alt_kernel}-isdn-fcpci
